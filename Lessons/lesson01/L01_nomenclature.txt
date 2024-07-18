@@ -1,0 +1,9 @@
+Iterera
+	Att upprepa.
+	Man kan "iterera över" en samling i Python, då gör man något för varje
+	element i samlingen.
+
+namn()
+	Detta betyder att "namn" är en funktion. Jag skriver så för att förtydliga
+	för er.
+	T.ex. print() eller range()

@@ -1,0 +1,22 @@
+Fortsättningskurs i programmering i Python
+
+Vad gick vi igenom i grundkursen?
+
+	- Datatyper
+	- Flödeskontroll
+	- Slicing / hämtning av data
+	- Funktioner
+	- Importer, namnrymder och moduler
+	- Objekt och klasser
+
+Vad kommer vi gå igenom i fortsättningskursen enligt nuvarande planering?
+	Lektion01: Introduktion & repetition
+	Lektion02: Programstruktur och "Att skapa ett program"
+	Lektion03: Flödeskontroll i praktiken
+	Lektion04: GUI (Graphical User Interface) / grafiska gränssnitt
+	Lektion05: Filhantering, del 1
+	Lektion06: Filhantering, del 2
+	Lektion07: Strängmanipulering och datahantering
+	Lektion08: Felhantering
+	Om tillfällen räcker till:
+	Lektion09: Deltagares önskemål
