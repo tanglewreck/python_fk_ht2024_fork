@@ -9,6 +9,13 @@ Vad gick vi igenom i grundkursen?
 	- Importer, namnrymder och moduler
 	- Objekt och klasser
 
+
+Till skillnad från i grundkursen så kommer många fler av filerna jag använder
+och termer jag går igenom vara på engelska. Förklaringar kommer fortsatt vara
+på svenska och om det är någon term som känns otydlig, tveka inte att avbryta
+mig och fråga om en översättning.
+
+
 Vad kommer vi gå igenom i fortsättningskursen enligt nuvarande planering?
 	Lektion01: Introduktion & repetition
 	Lektion02: Programstruktur och "Att skapa ett program"

@@ -1,3 +1,5 @@
+Nomenklatur för lektion 1:
+
 Iterera
 	Att upprepa.
 	Man kan "iterera över" en samling i Python, då gör man något för varje
