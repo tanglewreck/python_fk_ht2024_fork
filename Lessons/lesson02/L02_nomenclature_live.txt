@@ -1,0 +1,18 @@
+Nomenklatur för lektion 2:
+
+IDE
+	Integrated Development Environment
+	Integrerad Utvecklingsmiljö
+	I grundkursen använde vi oss av IDLE.
+	En IDE är som en textredigerare men har extra funktionalitet.
+	Pycharm är en IDE.
+
+Virtuell miljö / Virtual Environment
+	En "lokal" Python-installation. Rekommenderat att ha en virtuell miljö
+	per "projekt". Oftast döps mappen där miljön ligger till env, venv, .env
+	eller .venv.
+
+Tester
+	Refererar oftast till s.k. "enhetstester", vilket är automatiserade tester
+	programmerare skriver för att kontrollera att alla delar av ens program
+	fungerar som de ska.
