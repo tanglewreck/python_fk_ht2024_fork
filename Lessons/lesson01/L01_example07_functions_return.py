@@ -11,8 +11,8 @@ def get_name():
     return input_name
 
 
-# Anropar vi greet() med ett argument sätts variabeln name till värdet som vi
-# skickar in.
+# Anropar vi greet() med ett argument sätts variabeln name (i funktionens
+# namnrymd) till värdet som vi skickar in.
 print("\ngreet() med ett argument:")
 greet("Johan")
 
