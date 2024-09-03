@@ -41,8 +41,8 @@ class HangmanGame:
 
     def display_current_state(self):
         # print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
-        # if len(self.guessed_letters) > 0:
-        #    print("Du har gissat dessa bokstäver:", *self.guessed_letters)
+        if len(self.guessed_letters) > 0:
+            print("Du har gissat dessa bokstäver:", *self.guessed_letters)
         #    if self.incorrect_guesses_made == 1:
         #        print("Du har gissat fel", self.incorrect_guesses_made, "gång.")
         #    else:
@@ -95,7 +95,8 @@ class HangmanGame:
     def check_game_over(self):
         if self.incorrect_guesses_made == self.n_allowed_guesses:
             self.display_partially_hidden_word()
-            print(f"Game over! Det hemliga ordet var '{self.word_to_guess}'")
+            print("Game over!")
+            print(f"Det hemliga ordet var '{self.word_to_guess}'")
             self.do_quit()
 
     def mainloop(self):
