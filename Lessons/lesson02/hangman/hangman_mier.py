@@ -1,16 +1,21 @@
-# Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
-# fungerande program. Under kommande veckor kommer vi lägga till fler funktioner
-# samt dela upp programmet i flera filer.
+"""
+hangman – guess the secret word
+
+Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
+fungerande program. Under kommande veckor kommer vi lägga till fler funktioner
+samt dela upp programmet i flera filer.
+"""
 import random
+from wordlist_se import WORDLIST
 
-POSSIBLE_WORDS = (
-    "Apa",
-    "Banan",
-    "Cacao",
-    "Dans",
-    "Elefant",
-    )
-
+# POSSIBLE_WORDS = (
+#    "Apa",
+#    "Banan",
+#    "Cacao",
+#    "Dans",
+#    "Elefant",
+#    )
+POSSIBLE_WORDS = WORDLIST
 
 class HangmanGame:
     """Hangman game: guess the secret word"""
@@ -26,28 +31,41 @@ class HangmanGame:
         """
         # self.word_to_guess = ""
         self.word_to_guess = self.get_word_to_guess()
+        print(self.word_to_guess)
         self.guessed_letters = set()
         self.current_guess = ""
         self.incorrect_guesses_made = 0
-        self.display_current_state()
 
     def get_word_to_guess(self):
         return random.choice(self.possible_words).lower()
 
     def display_current_state(self):
-        print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
-        if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:", *self.guessed_letters)
-            print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
+        # print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
+        # if len(self.guessed_letters) > 0:
+        #    print("Du har gissat dessa bokstäver:", *self.guessed_letters)
+        #    if self.incorrect_guesses_made == 1:
+        #        print("Du har gissat fel", self.incorrect_guesses_made, "gång.")
+        #    else:
+        #        print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
         print("Du har", self.n_allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.")
         # self.make_guess()
 
+    def display_partially_hidden_word(self):
+        # stat_str = "_ " * len(self.word_to_guess)
+        # print(stat_str)
+        for c in self.word_to_guess:
+            if c in self.guessed_letters:
+                print(f"{c} ", end="")
+            else:
+                print("_ ", end="")
+        print()
+
     def make_guess(self):
+        self.display_partially_hidden_word()
         self.current_guess == ""
         while self.current_guess in self.guessed_letters or len(self.current_guess) != 1:
             self.current_guess = input("Gissa en bokstav: ").lower()
         self.guessed_letters.add(self.current_guess)
-        check_correct = self.check_guess()
         if self.check_guess():
             self.correct_guess()
         else:
@@ -55,10 +73,7 @@ class HangmanGame:
         # self.display_current_state()
 
     def check_guess(self):
-        if self.current_guess in self.word_to_guess:
-            return True
-        else:
-            return False
+        return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
         print(f"'{self.current_guess}' finns i det hemliga ordet.\n")
@@ -73,25 +88,27 @@ class HangmanGame:
         for letter in self.word_to_guess:
             if letter not in self.guessed_letters:
                 return
-        print("Du vann! Det hemliga ordet var", self.word_to_guess)
+        self.display_partially_hidden_word()
+        print(f"Du vann! Det hemliga ordet var '{self.word_to_guess}'")
         self.do_quit()
 
     def check_game_over(self):
         if self.incorrect_guesses_made == self.n_allowed_guesses:
-            print("Game over! Det hemliga ordet var", self.word_to_guess)
+            self.display_partially_hidden_word()
+            print(f"Game over! Det hemliga ordet var '{self.word_to_guess}'")
             self.do_quit()
 
     def mainloop(self):
         while self.incorrect_guesses_made <= self.n_allowed_guesses:
+            self.display_current_state()
             self.make_guess()
 
 
     def do_quit(self):
-        print("Bye-bye")
         raise SystemExit(0)
 
 
 if __name__ == '__main__':
     my_dictionary = ['apa', 'bepa']
-    game = HangmanGame(my_dictionary)
+    game = HangmanGame(WORDLIST)
     game.mainloop()
