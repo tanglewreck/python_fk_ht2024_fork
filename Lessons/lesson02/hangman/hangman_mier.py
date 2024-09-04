@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 
 """
 hangman – guess the secret word
@@ -12,14 +12,13 @@ from utils import parse_arguments
 from wordlist_se import WORDLIST as WORDLIST_1   #   6,212 entries
 from swe_wordlist import WORDLIST as WORDLIST_2  # 403,511 entries, including declinations
 
-WORDLIST = WORDLIST_2
 
 class HangmanGame:
     """
     Hangman game: guess the secret word
     """
 
-    def __init__(self, possible_words=WORDLIST, n_allowed_guesses=5, debug=False):
+    def __init__(self, possible_words, n_allowed_guesses=5, debug=False):
         # A list of words from which the secret word is randomly chosen
         self.debug = debug
         self.possible_words = possible_words
@@ -39,21 +38,28 @@ class HangmanGame:
         self.incorrect_guesses_made = 0
 
     def get_word_to_guess(self):
+        """Choose and return a word at random"""
         return random.choice(self.possible_words).lower()
 
     def display_current_state(self):
+        """Display current game status"""
         if len(self.guessed_letters) > 0:
             print("Gissade bokstäver:", *self.guessed_letters)
-        print("Du har", self.n_allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.")
+        print("Gissningar kvar:",
+              self.n_allowed_guesses - self.incorrect_guesses_made)
 
     def display_partially_hidden_word(self):
-        return " ".join( [ c if c in self.guessed_letters else "_" for c in self.word_to_guess ])
+        """Return a string where characters not yet guessed are replaced """
+        return " ".join(
+            [c if c in self.guessed_letters else "_" for c in self.word_to_guess]
+        )
 
     def make_guess(self):
+        """Ask the user to make a guess, then check whether it's correct"""
         print(self.display_partially_hidden_word())
         print()
-        self.current_guess == ""
-        while self.current_guess in self.guessed_letters or len(self.current_guess) != 1:
+        while self.current_guess in self.guessed_letters \
+                or len(self.current_guess) != 1:
             self.current_guess = input("Gissa en bokstav: ").lower()
             print()
         self.guessed_letters.add(self.current_guess)
@@ -63,16 +69,23 @@ class HangmanGame:
             self.incorrect_guess()
 
     def check_guess(self):
+        """Just return true if current guess is in the secret word"""
         return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
+        """Possibly redundant method.
+        Called when the current guessed character is in the secret word"""
         self.check_game_won()
 
     def incorrect_guess(self):
+        """Called when the current guessed character is not in the secret word.
+        Update counter of incorrect guesses and check if it's game over."""
         self.incorrect_guesses_made += 1
         self.check_game_over()
 
     def check_game_won(self):
+        """Check whether all guessed letters are in the secret word and if so,
+        print a hurrah message and proceed to quit"""
         for letter in self.word_to_guess:
             if letter not in self.guessed_letters:
                 return
@@ -107,6 +120,11 @@ class HangmanGame:
 if __name__ == '__main__':
     # Parse command-line arguments (-d, -v, -n)
     args = parse_arguments()
-    # 
-    game = HangmanGame(possible_words=WORDLIST_2, n_allowed_guesses=args.n, debug=args.debug)
+    # Pick a wordlist
+    if args.difficulty > 1:
+        WORDLIST = WORDLIST_2  # The (much) longer one
+    else:
+        WORDLIST = WORDLIST_1  # The shorter, easier one
+
+    game = HangmanGame(WORDLIST, n_allowed_guesses=args.n, debug=args.debug)
     game.mainloop()
