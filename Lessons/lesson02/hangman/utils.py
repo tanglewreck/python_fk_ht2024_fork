@@ -52,23 +52,28 @@ def parse_arguments():
     parser.add_argument('-d', '--debug',
                         default=False,
                         action='store_true',
-                        help=help_dict['debug'])
+                        help=help_dict['debug']
+                        )
     parser.add_argument('-v', '--verbose',
                         default=False,
                         action='store_true',
-                        help=help_dict['verbose'])
-    parser.add_argument('-n', 
+                        help=help_dict['verbose']
+                        )
+    parser.add_argument('-n',
                         metavar='N',
                         dest='n',
+                        type=int,
                         default=10,
                         action='store',
+                        help=help_dict['number']
+                        )
+    parser.add_argument('--difficulty',
                         type=int,
-                        help=help_dict['number'])
+                        default=1,
+                        action='store'
+                        )
     try:
         args = parser.parse_args()
-        # Return argparse.Namespace object
-        return args
     except argparse.ArgumentError as e:
         err_msg(f"Caught argparse.ArgumentError: {e}")
-        pass
-
+    return args
