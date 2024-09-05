@@ -3,7 +3,7 @@
 #
 # Originally obtained from http://world.std.com/~reinhold/diceware.wordlist.asc
 #
-WORDLIST = [
+WORDLIST = (
     "abakus",
     "abbot",
     "aber",
@@ -6209,4 +6209,4 @@ WORDLIST = [
     "zulu",
     "zygot",
     "zzzz"
-]
+)
