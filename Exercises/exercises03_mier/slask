@@ -1,0 +1,20 @@
+def div_by_2_or_3_or_both(n: int):
+    s = str(n) + " är varken delbart med 2 eller 3"
+    if n % 2 == 0:
+        s = str(n) + " är jämnt delbart med 2"
+    if n % 3 == 0:
+        s = str(n) + " är jämnt delbart med 3"
+    if (n % 2 == 0) and (n % 3 == 0):
+        s = str(n) + " är jämnt delbart med både 2 och 3"
+    print(s)
+    print()
+
+n = 999  # Just some random number 
+while n != 0:
+    while True:
+        try:
+            n = int(input("Skriv in ett heltal (0 för att avsluta programmet): "))
+            div_by_2_or_3_or_both(n)
+            break
+        except ValueError:
+            print("Du har inte skrivit in ett heltal")
