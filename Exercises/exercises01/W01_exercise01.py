@@ -6,3 +6,9 @@
 # "hårdkoda" fem stycken print().
 
 my_list = [1, 'hus', 34, 2, 'katt']
+
+for element in my_list:
+    print(element)
+
+# print()
+# map(print, my_list)

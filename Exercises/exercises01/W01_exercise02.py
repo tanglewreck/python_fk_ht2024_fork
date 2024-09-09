@@ -7,3 +7,20 @@
 # Att hårdkoda, d.v.s. att skriva print(55) är INTE rätt.
 
 # Ett möjligt sätt att lösa denna uppgift är att använda sig av en while-loop.
+N = 10
+
+s = 0
+for k in range(1, N + 1):
+    s += k
+print(f"sum(1) = {s}")
+
+
+s = k = 0
+while k <= N:
+    s += k
+    k += 1
+print(f"sum(2) = {s}")
+
+
+s = sum(list(range(1, 11)))
+print(f"sum(3) = {s}")

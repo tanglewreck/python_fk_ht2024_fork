@@ -5,9 +5,19 @@
 # Koden nedan är enbart för att kontrollera att övningen är rätt; ändra anropen
 # så att de anropar din funktion.
 
+import random
+import numpy as np
+
+def rnd_choice(a_list: list):
+    return random.choice(a_list)
+
+def rnd_choice_np(a_list: list, N = 1):
+    return np.random.choice(a_list, size=N)
 
 
+print(rnd_choice([1, 2, 3, 4]))
+print(rnd_choice(["Ett", "Två", "Tre"]))
+print(rnd_choice([1, "Två", 3, "Fyra"]))
 
-din_funktion([1, 2, 3, 4])
-din_funktion(["Ett", "Två", "Tre"])
-din_funktion([1, "Två", 3, "Fyra"])
+print()
+print(rnd_choice_np([1, "Två", 3, "Fyra"], 2))
