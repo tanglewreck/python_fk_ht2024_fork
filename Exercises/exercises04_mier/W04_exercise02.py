@@ -1,7 +1,7 @@
 """W04_exercise02 - join()"""
 import subprocess
 
-subprocess.call(["/usr/bin/clear"])
+subprocess.call(["/usr/bin/clear"])  # Orkar inte ta reda på hur man skriver ut CTRL-L = clear screen: ) 
 print("""
 #
 # ÖVNINGAR
