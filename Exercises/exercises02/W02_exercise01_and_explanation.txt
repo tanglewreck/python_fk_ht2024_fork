@@ -21,3 +21,5 @@ för varje, det bestämmer ni själva.
 
 	-En ledtråd är att, som det står i kommentaren i setup(), setup() även borde
 		kunna användas för att "nollställa" spelet och därmed starta en ny omgång.
+
+
