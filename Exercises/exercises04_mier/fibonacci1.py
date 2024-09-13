@@ -1,4 +1,11 @@
 # coding: utf-8
+import sys
+
+try:
+    N = int(sys.argv[1])
+except IndexError:
+    N = 10
+
 def fib1(n: int = 10) -> int:
     """
     Fibonacci numbers, recursively defined:
@@ -12,5 +19,5 @@ def fib1(n: int = 10) -> int:
         
 
 if __name__ == "__main__":
-    for k in range(2, 11):
-        print(f"fib1({k}) = {fib1(k)}")
+    for k in range(2, N + 1):
+        print(f"Fibonacci number {k:<8d} {fib1(k):<20d}")
