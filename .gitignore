@@ -1,3 +1,6 @@
+## Apple stuff
+.*DS_Store
+
 ### vim swp files
 *.swp
 
