@@ -5,6 +5,7 @@
 # X. Använd en f-sträng för att skriva ut talet 1/3 med tre decimaler:
 # LÖSNINGSFÖRSLAG
 f = f"{1 / 3:.3f}" 
+
 print("–" * len(f))
 print(f"{1 / 3:.3f}") 
 print("–" * len(f))
