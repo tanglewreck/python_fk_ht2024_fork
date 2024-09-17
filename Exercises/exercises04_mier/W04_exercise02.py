@@ -209,8 +209,12 @@ print("""
 #               if c == "_":
 #                   my_list[k] = " "
 #
+# TIPS 3: Ett sätt att slippa index-variablen är att använda en list-comprehension:
+    [c if c != "_" else " " for c in list(string_with_underscores)]
+  Lägg till join() till ovanstående så är du klar! : ) 
+
 #
-# LÖSNINGSFÖRSLAG:
+# LÖSNINGSFÖRSLAG 1:
 #
 string_with_underscores = "Det_här_är_en_sträng_med_en_massa_understreck_som_behöver_göras_om_till_mellanslag"
 string_list = list(string_with_underscores)
@@ -219,8 +223,20 @@ for k, c in enumerate(string_list):
         string_list[k] = " "
 string_with_underscores = "".join(string_list)
 print(string_with_underscores)
+
+# LÖSNINGSFÖRSLAG 2:
+string_with_underscores = "Det_här_är_en_sträng_med_en_massa_understreck_som_behöver_göras_om_till_mellanslag"
+string_list = list(string_with_underscores)
+
+tmp_list = [c if c != "_" else " " for c in list(string_with_underscores)]
+print("".join(tmp_list))
+
+# Alternativt (men lite grötigare): 
+print("".join([c if c != "_" else " " for c in list(string_with_underscores)]))
+
 """)
 
+# LÖSNINGSFÖRSLAG 1
 string_with_underscores = "Det_här_är_en_sträng_med_en_massa_understreck_som_behöver_göras_om_till_mellanslag"
 string_list = list(string_with_underscores)
 for k, c in enumerate(string_list):
@@ -229,3 +245,9 @@ for k, c in enumerate(string_list):
 string_with_underscores = "".join(string_list)
 print(string_with_underscores)
 
+# LÖSNINGSFÖRSLAG 2
+tmp_list = [c if c != "_" else " " for c in list(string_with_underscores)]
+print("".join(tmp_list))
+
+# Alternativt (men lite grötigare): 
+print("".join([c if c != "_" else " " for c in list(string_with_underscores)]))
