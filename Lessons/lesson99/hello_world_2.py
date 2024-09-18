@@ -1,4 +1,4 @@
-"""Hello World (1)"""
+"""Kivy Hello World (2) implemented in pure Python (no kv file)"""
 
 import sys
 from kivy.app import App
