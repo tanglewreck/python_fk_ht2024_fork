@@ -12,3 +12,5 @@ f-strängar har alltså möjligheten att hämta data från variabler (eller andr
 källor) och placera den datan inom strängen.
 
 Vi kommer att använda oss av f-strängar genom resten av kursen.
+
+

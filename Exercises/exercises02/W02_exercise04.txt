@@ -9,3 +9,4 @@
 	- Skriv om metoden så att den är två rader eller kortare.
 
 	- Ledtråd: Vad är resultatet av "self.current_guess in self.word_to_guess"?
+

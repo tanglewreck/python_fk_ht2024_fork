@@ -10,3 +10,4 @@ print("Johan är " + str(age) + " år gammal.")
 # Om vi använder en f-sträng så kan vi istället skriva så här:
 print(f"Johan är {age} år gammal.")
 print(f"{1+1=}")
+
