@@ -36,8 +36,8 @@ try:
                          # if we don't have the proper permissions
     else:
         confirm = input(f"WARNING: Output file ({path_out}) exists.\nOverwrite [y/N]?")
-        # Exit graciously if answer is 'n' or empty
-        if confirm.lower() == "n" or not confirm:
+        # Exit graciously if answer is not 'y' or if empty
+        if not confirm.lower() == "y" or not confirm:
             sys.stderr.write(f"Will not overwrite outfile ({path_out}).\n")
             raise SystemExit(0)
 except (PermissionError) as e:
