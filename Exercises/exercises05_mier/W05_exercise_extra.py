@@ -4,7 +4,8 @@
 # Skriv ett program som gör följande:
 #
 # 1. Be användaren skriva in ett (påhittat) namn i konsolfönstret;
-#    spara namnet i variabeln name (tips: använd input())
+#    spara namnet i variabeln 'name',
+#    t.ex. name = input("Hur var namnet? ")
 #
 # 2. Be användaren skriva in en poängsumma i konsolfönstret;
 #    spara namnet i variabeln points
