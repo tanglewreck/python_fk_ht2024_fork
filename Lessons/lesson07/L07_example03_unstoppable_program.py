@@ -9,5 +9,14 @@ while True:
     try:
         x = input("Skriv in ett värde som ska skrivas ut: ")
         print(x)
+    except KeyboardInterrupt:
+        print()
+        print("Got KeyboardInterrupt")
+        # if yesno := input("Quit? ") == "y":
+        # if input("Quit? ") == "y":
+        if input("Quit? ").lower().startswith("y"):
+            print("Bye-bye")
+            raise SystemExit()
+            # quit()
     except:
         print("Fångade ett fel! Hurra!")
